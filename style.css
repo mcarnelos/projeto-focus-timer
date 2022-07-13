@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --primary-color: #323238;
+  --bg-cards: #E1E1E6;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 19.2rem;
+
+  margin-top: 13.6rem;
+}
+
+.timerControls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.timer {
+  font-size: clamp(4rem, 4rem + 10vw, 12em);
+
+  color: var(--primary-color);
+
+  display: flex;
+  justify-content: flex-start;
+
+  margin-bottom: 4.8rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 4rem;
+
+  width: 31.2rem;
+  height: 4.8rem;
+}
+
+button {
+  background-color: transparent;
+  color: var(--primary-color);
+
+  border: none;
+
+  cursor: pointer;
+}
+
+.cards {
+  display: grid;
+  grid-template-areas: 'A B'
+                       'C D';
+  gap: 3.2rem;
+}
+
+.cardForest {
+  grid-area: A;
+}
+
+.cardRain {
+  grid-area: B;
+}
+
+.cardCoffeShop {
+  grid-area: C;
+}
+
+.cardFireplace {
+  grid-area: D;
+}
+
+.cardForest,
+.cardRain,
+.cardCoffeShop,
+.cardFireplace {
+  background-color: var(--bg-cards);
+  border-radius: 2.4rem;
+
+  padding: 4.8rem;
+}

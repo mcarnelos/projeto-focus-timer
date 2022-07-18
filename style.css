@@ -95,3 +95,30 @@ button {
 
   padding: 4.8rem;
 }
+
+.cardForest:focus,
+.cardRain:focus,
+.cardCoffeShop:focus,
+.cardFireplace:focus {
+  background-color: #02799D;
+}
+
+.cardForest:focus path[fill*="#323238"] 
+{
+  fill: white;
+}
+
+.cardRain:focus path[fill*="#323238"] 
+{
+  fill: white;
+}
+
+.cardCoffeShop:focus path[fill*="#323238"] 
+{
+  fill: white;
+}
+
+.cardFireplace:focus path[fill*="#323238"] 
+{
+  fill: white;
+}

@@ -4,6 +4,14 @@ const buttonPlus = document.querySelector('.plus')
 const buttonLess = document.querySelector('.less')
 const minutesDisplay = document.querySelector('.minutes')
 const secondsDisplay = document.querySelector('.seconds')
+const buttonForest = document.querySelector('.cardForest')
+const buttonRain = document.querySelector('.cardRain')
+const buttonCoffeShop = document.querySelector('.cardCoffeShop')
+const buttonFireplace = document.querySelector('.cardFireplace')
+const audioForest = new Audio("./sounds/Floresta.wav")
+const audioRain = new Audio("./sounds/Chuva.wav")
+const audioCoffeShop = new Audio("./sounds/Cafeteria.wav")
+const audioFireplace = new Audio("./sounds/Lareira.wav")
 let minutes = Number(minutesDisplay.textContent) //pega os minutos iniciais
 let timerTimeOut //utilizado para parar o timer (stop)
 
@@ -31,7 +39,7 @@ function countdown() {
     }
 
     if(seconds <= 0) {
-      seconds = 3
+      seconds = 60
 
       --minutes //decrementa os minutos 
     }
@@ -50,6 +58,10 @@ buttonPlay.addEventListener('click', function() {
 buttonStop.addEventListener('click', function() {
   clearTimeout(timerTimeOut)//ativa o timerTimerOut, parando a aplicação
   resetTimer()
+  audioForest.pause()
+  audioRain.pause()
+  audioCoffeShop.pause()
+  audioFireplace.pause()
 })
 
 buttonPlus.addEventListener('click', function() {
@@ -60,3 +72,50 @@ buttonLess.addEventListener('click', function() {
   minutesDisplay.textContent = Number(minutesDisplay.textContent) - 5
 })
 
+function forest() {
+  audioRain.pause()
+  audioCoffeShop.pause()
+  audioFireplace.pause()
+  audioForest.loop = true
+  audioForest.play()
+}
+
+function rain() {
+  audioForest.pause()
+  audioCoffeShop.pause()
+  audioFireplace.pause()
+  audioRain.loop = true
+  audioRain.play()
+}
+
+function coffeShop() {
+  audioForest.pause()
+  audioRain.pause()
+  audioFireplace.pause()
+  audioCoffeShop.loop = true
+  audioCoffeShop.play()
+}
+
+function fireplace() {
+  audioForest.pause()
+  audioCoffeShop.pause()
+  audioRain.pause()
+  audioCoffeShop.loop = true
+  audioFireplace.play()
+}
+
+buttonForest.addEventListener('click', function() {
+  forest()
+})
+
+buttonRain.addEventListener('click', function() {
+  rain()
+})
+
+buttonCoffeShop.addEventListener('click', function() {
+  coffeShop()
+})
+
+buttonFireplace.addEventListener('click', function() {
+  fireplace()
+})

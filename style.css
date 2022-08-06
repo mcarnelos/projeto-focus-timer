@@ -7,12 +7,28 @@
 :root {
   font-size: 62.5%;
 
-  --primary-color: #323238;
-  --bg-cards: #E1E1E6;
+  --timer-light: #323238;
+  --bg-cards-light: #E1E1E6;
+  --bg-cards-light-onclick: #02799D;
+  --bg-light: #FFFFFF;
+
+  --timer-dark: #FFFFFF;
+  --bg-cards-dark: #29292E;
+  --bg-cards-dark-onclick: #0A3442;
+  --bg-collor-dark:hsla(240, 5%, 7%, 1);
 }
 
 body {
   font-family: 'Roboto', sans-serif;
+
+  background-color: var(--bg-light);
+
+  margin: 3rem;
+}
+
+.theme {
+  display: flex;
+  justify-content: right;
 }
 
 main {
@@ -21,7 +37,7 @@ main {
   align-items: center;
   gap: 19.2rem;
 
-  margin-top: 13.6rem;
+  margin-top: 7rem;
 }
 
 .timerControls {
@@ -29,17 +45,6 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.timer {
-  font-size: clamp(4rem, 4rem + 10vw, 12em);
-
-  color: var(--primary-color);
-
-  display: flex;
-  justify-content: flex-start;
-
-  margin-bottom: 4.8rem;
 }
 
 .controls {
@@ -56,11 +61,71 @@ main {
 
 button {
   background-color: transparent;
-  color: var(--primary-color);
 
   border: none;
 
   cursor: pointer;
+}
+
+.range  {
+  -webkit-appearance: none;
+  position: relative;
+  appearance: none;
+  width: 9rem;
+  height: 0.5rem;
+  border-radius: 5px;
+  background-color: var(--timer-light);
+}
+
+#volForest,
+#volRain,
+#volCoffe,
+#volFireplace{
+  bottom: 3.2rem;
+}
+
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--timer-light);
+}
+
+.active #volForest,
+.active #volRain,
+.active #volCoffe,
+.active #volFireplace{
+
+  background-color: var(--bg-light);
+
+} 
+ 
+.active #volForest::-webkit-slider-thumb,
+.active #volRain::-webkit-slider-thumb,
+.active #volCoffe::-webkit-slider-thumb,
+.active #volFireplace::-webkit-slider-thumb{
+
+  background-color: var(--bg-light);
+
+}
+
+.dark #volForest,
+.dark #volRain,
+.dark #volCoffe,
+.dark #volFireplace{
+
+  background-color: var(--bg-light);
+
+}
+
+.dark #volForest::-webkit-slider-thumb,
+.dark #volRain::-webkit-slider-thumb,
+.dark #volCoffe::-webkit-slider-thumb,
+.dark #volFireplace::-webkit-slider-thumb{
+
+  background-color: var(--bg-light);
+  
 }
 
 .cards {
@@ -68,57 +133,75 @@ button {
   grid-template-areas: 'A B'
                        'C D';
   gap: 3.2rem;
+
+  width: clamp(10rem, 10rem + 30vw, 30.8rem);
+  height: clamp(10rem, 10rem + 30vw, 33,12.6rem);
 }
 
-.cardForest {
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.forest {
   grid-area: A;
 }
 
-.cardRain {
+.rain {
   grid-area: B;
-}
+} 
 
-.cardCoffeShop {
+.coffeShop {
   grid-area: C;
 }
 
-.cardFireplace {
+.fireplace {
   grid-area: D;
 }
 
-.cardForest,
-.cardRain,
-.cardCoffeShop,
-.cardFireplace {
-  background-color: var(--bg-cards);
-  border-radius: 2.4rem;
+.timer {
+  font-size: clamp(4rem, 4rem + 10vw, 12em);
 
-  padding: 4.8rem;
+  color: var(--timer-light);
+
+  display: flex;
+  justify-content: flex-start;
+
+  margin-bottom: 4.8rem;
 }
 
-.cardForest:focus,
-.cardRain:focus,
-.cardCoffeShop:focus,
-.cardFireplace:focus {
-  background-color: #02799D;
+.active path[fill*='#E1E1E6']{
+  fill: var(--bg-cards-light-onclick);
 }
 
-.cardForest:focus path[fill*="#323238"] 
-{
-  fill: white;
+.active path[fill*='#323238']{
+  fill: var(--bg-light);
 }
 
-.cardRain:focus path[fill*="#323238"] 
-{
-  fill: white;
+.dark {
+  background-color: var(--bg-collor-dark);
+  color: var(--bg-light);
 }
 
-.cardCoffeShop:focus path[fill*="#323238"] 
-{
-  fill: white;
+.dark path[fill*='#E1E1E6']{
+  fill: var(--bg-cards-dark);
 }
 
-.cardFireplace:focus path[fill*="#323238"] 
-{
-  fill: white;
+.dark .active path[fill*='#E1E1E6']{
+  fill: var(--bg-cards-dark-onclick);
 }
+
+.dark path[fill*='#323238']{
+  fill: var(--bg-light);
+}
+
+.dark .timer {
+  color: var(--timer-dark);
+}
+
+.hide {
+  display: none;
+}
+

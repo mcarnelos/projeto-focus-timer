@@ -29,7 +29,7 @@ https://mcarnelos.github.io/projeto-focus-timer
 # clonar repositório
 git clone https://github.com/mcarnelos/projeto-focus-timer
 
-# entrar na pasta projeto-doctor-care
+# entrar na pasta projeto-focus-timer
 abrir na IDE de preferência, no meu caso foi utilizado o Visual Studio Code.
 ```
 
